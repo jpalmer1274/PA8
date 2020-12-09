@@ -14,7 +14,7 @@ class Place {
     var rating: String
     var photoReference: String
     
-    func Place(id: String, name: String, vicinity: String, rating: String, photoReference: String) {
+    init(id: String, name: String, vicinity: String, rating: String, photoReference: String) {
         self.id = id
         self.name = name
         self.vicinity = vicinity
