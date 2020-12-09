@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		D1D5468625818644006D44B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5468525818644006D44B5 /* AppDelegate.swift */; };
 		D1D5468825818644006D44B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5468725818644006D44B5 /* SceneDelegate.swift */; };
-		D1D5468A25818644006D44B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5468925818644006D44B5 /* ViewController.swift */; };
+		D1D5468A25818644006D44B5 /* PlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5468925818644006D44B5 /* PlaceTableViewController.swift */; };
 		D1D5468D25818644006D44B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1D5468B25818644006D44B5 /* Main.storyboard */; };
 		D1D5468F25818645006D44B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1D5468E25818645006D44B5 /* Assets.xcassets */; };
 		D1D5469225818645006D44B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1D5469025818645006D44B5 /* LaunchScreen.storyboard */; };
 		D1D5469B258188AF006D44B5 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5469A258188AF006D44B5 /* Place.swift */; };
+		D1D546A125818D32006D44B5 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D546A025818D32006D44B5 /* PlaceDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D1D5468225818644006D44B5 /* gioffrepalmerPA8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gioffrepalmerPA8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D5468525818644006D44B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1D5468725818644006D44B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D1D5468925818644006D44B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D1D5468925818644006D44B5 /* PlaceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewController.swift; sourceTree = "<group>"; };
 		D1D5468C25818644006D44B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1D5468E25818645006D44B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1D5469125818645006D44B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1D5469325818645006D44B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1D5469A258188AF006D44B5 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		D1D546A025818D32006D44B5 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,8 @@
 		D1D5468425818644006D44B5 /* gioffrepalmerPA8 */ = {
 			isa = PBXGroup;
 			children = (
-				D1D5468925818644006D44B5 /* ViewController.swift */,
+				D1D5468925818644006D44B5 /* PlaceTableViewController.swift */,
+				D1D546A025818D32006D44B5 /* PlaceDetailViewController.swift */,
 				D1D5468B25818644006D44B5 /* Main.storyboard */,
 				D1D5469A258188AF006D44B5 /* Place.swift */,
 				D1D5469D258188BF006D44B5 /* Supporting Files */,
@@ -148,8 +151,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1D5468A25818644006D44B5 /* ViewController.swift in Sources */,
+				D1D5468A25818644006D44B5 /* PlaceTableViewController.swift in Sources */,
 				D1D5468625818644006D44B5 /* AppDelegate.swift in Sources */,
+				D1D546A125818D32006D44B5 /* PlaceDetailViewController.swift in Sources */,
 				D1D5468825818644006D44B5 /* SceneDelegate.swift in Sources */,
 				D1D5469B258188AF006D44B5 /* Place.swift in Sources */,
 			);
