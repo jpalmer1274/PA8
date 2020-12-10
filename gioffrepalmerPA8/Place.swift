@@ -11,13 +11,13 @@ class Place {
     var id: String
     var name: String
     var vicinity: String
-    var rating: String
+    var rating: Double
     var photoReference: String
     var openNow: Bool
     var phoneNumber: String
     var address: String
     
-    init(id: String, name: String, vicinity: String, rating: String, photoReference: String, openNow: Bool, phoneNumber: String, address: String) {
+    init(id: String, name: String, vicinity: String, rating: Double, photoReference: String, openNow: Bool, phoneNumber: String, address: String) {
         self.id = id
         self.name = name
         self.vicinity = vicinity
