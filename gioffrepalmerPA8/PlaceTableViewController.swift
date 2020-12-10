@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlaceTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PlaceTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
     
     var places = [Place]()
     @IBOutlet var tableView: UITableView!
@@ -19,7 +19,16 @@ class PlaceTableViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         tableView.dataSource = self
         
-        GooglePlacesSearchAPI.fetchSearchResults(latitude: "47.667191", longitude: "-117.402382", keyword: "carusos", completion: { (placesOptional) in
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Nearby"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
+    func searchNearby(keyword: String) {
+        GooglePlacesSearchAPI.fetchSearchResults(latitude: "47.667191", longitude: "-117.402382", keyword: keyword, completion: { (placesOptional) in
             if let places = placesOptional {
                 print("in Table VC, got array back")
                 self.places = places
@@ -29,11 +38,9 @@ class PlaceTableViewController: UIViewController, UITableViewDataSource, UITable
             }
             
         })
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("I AM HERE 2")
         if section == 0 {
             return places.count
         }
@@ -41,7 +48,6 @@ class PlaceTableViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("I AM HERE")
         let row = indexPath.row
         let place = places[row]
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "subtitleStyle")
@@ -56,6 +62,19 @@ class PlaceTableViewController: UIViewController, UITableViewDataSource, UITable
         self.performSegue(withIdentifier: "DetailSegue", sender: self)
     }
     
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        if let keyword = searchBar.text {
+            if keyword != "" {
+                searchNearby(keyword: keyword)
+            } else {
+                places.removeAll()
+                tableView.reloadData()
+            }
+        }
+    }
+    
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "DetailSegue" {

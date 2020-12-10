@@ -19,12 +19,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xcO-di-jAi">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="f8J-hk-3EA">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kvb-dY-ub2">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="567"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtitleStyle" textLabel="nEO-55-I3e" detailTextLabel="td3-03-pn5" style="IBUITableViewCellStyleSubtitle" id="LYi-5J-ubf">
@@ -57,9 +53,6 @@
                                 <constraints>
                                     <constraint firstItem="Kvb-dY-ub2" firstAttribute="leading" secondItem="xcO-di-jAi" secondAttribute="leading" id="LRM-Y9-rHW"/>
                                     <constraint firstAttribute="trailing" secondItem="Kvb-dY-ub2" secondAttribute="trailing" id="oc0-vn-vuU"/>
-                                    <constraint firstAttribute="trailing" secondItem="f8J-hk-3EA" secondAttribute="trailing" id="qnD-g4-LGQ"/>
-                                    <constraint firstItem="Kvb-dY-ub2" firstAttribute="top" secondItem="f8J-hk-3EA" secondAttribute="bottom" id="rCG-U1-zR4"/>
-                                    <constraint firstItem="f8J-hk-3EA" firstAttribute="leading" secondItem="xcO-di-jAi" secondAttribute="leading" id="yGg-Ka-gJW"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -67,8 +60,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="xcO-di-jAi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1I3-DT-u7r"/>
+                            <constraint firstItem="xcO-di-jAi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6Jz-6e-oYo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xcO-di-jAi" secondAttribute="trailing" id="7U6-oM-ZtS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xcO-di-jAi" secondAttribute="bottom" id="7iL-4N-ZsK"/>
+                            <constraint firstItem="xcO-di-jAi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="7xj-vf-Asc"/>
                             <constraint firstItem="xcO-di-jAi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8mS-o9-81L"/>
                         </constraints>
                     </view>
