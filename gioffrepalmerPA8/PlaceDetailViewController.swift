@@ -2,12 +2,19 @@
 //  PlaceDetailViewController.swift
 //  gioffrepalmerPA8
 //
-//  Created by Gioffre, Ian Thomas on 12/9/20.
+//  Created by Gioffre, Ian Thomas and JR Palmer on 12/9/20.
 //
 
 import UIKit
 
 class PlaceDetailViewController: UIViewController {
+    
+    @IBOutlet var placeName: UILabel!
+    @IBOutlet var placePhoneNumber: UILabel!
+    @IBOutlet var placeOpen: UILabel!
+    @IBOutlet var placeAddress: UILabel!
+    @IBOutlet var placeReview: UILabel!
+    @IBOutlet var placePicture: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

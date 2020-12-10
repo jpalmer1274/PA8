@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B17782D2581D4AF00B1EB21 /* GooglePlacesSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B17782C2581D4AF00B1EB21 /* GooglePlacesSearchAPI.swift */; };
+		2B1778302581E4FE00B1EB21 /* GooglePlacesDetailAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B17782F2581E4FE00B1EB21 /* GooglePlacesDetailAPI.swift */; };
 		D1D5468625818644006D44B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5468525818644006D44B5 /* AppDelegate.swift */; };
 		D1D5468825818644006D44B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5468725818644006D44B5 /* SceneDelegate.swift */; };
 		D1D5468A25818644006D44B5 /* PlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5468925818644006D44B5 /* PlaceTableViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B17782C2581D4AF00B1EB21 /* GooglePlacesSearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesSearchAPI.swift; sourceTree = "<group>"; };
+		2B17782F2581E4FE00B1EB21 /* GooglePlacesDetailAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesDetailAPI.swift; sourceTree = "<group>"; };
 		D1D5468225818644006D44B5 /* gioffrepalmerPA8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gioffrepalmerPA8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D5468525818644006D44B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1D5468725818644006D44B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 				D1D5469A258188AF006D44B5 /* Place.swift */,
 				D1D5469D258188BF006D44B5 /* Supporting Files */,
 				D1D5469325818645006D44B5 /* Info.plist */,
+				2B17782C2581D4AF00B1EB21 /* GooglePlacesSearchAPI.swift */,
+				2B17782F2581E4FE00B1EB21 /* GooglePlacesDetailAPI.swift */,
 			);
 			path = gioffrepalmerPA8;
 			sourceTree = "<group>";
@@ -152,10 +158,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1D5468A25818644006D44B5 /* PlaceTableViewController.swift in Sources */,
+				2B1778302581E4FE00B1EB21 /* GooglePlacesDetailAPI.swift in Sources */,
 				D1D5468625818644006D44B5 /* AppDelegate.swift in Sources */,
 				D1D546A125818D32006D44B5 /* PlaceDetailViewController.swift in Sources */,
 				D1D5468825818644006D44B5 /* SceneDelegate.swift in Sources */,
 				D1D5469B258188AF006D44B5 /* Place.swift in Sources */,
+				2B17782D2581D4AF00B1EB21 /* GooglePlacesSearchAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
