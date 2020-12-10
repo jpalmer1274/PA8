@@ -21,11 +21,11 @@ class PlaceTableViewController: UIViewController, UITableViewDataSource, UITable
         
         GooglePlacesSearchAPI.fetchSearchResults(latitude: "47.667191", longitude: "-117.402382", keyword: "carusos", completion: { (placesOptional) in
             if let places = placesOptional {
-                print("in VC, got array back")
+                print("in Table VC, got array back")
                 self.places = places
                 self.tableView.reloadData()
             } else {
-                print("in VC, DID NOT get array back")
+                print("in Table VC, DID NOT get array back")
             }
             
         })
@@ -52,7 +52,22 @@ class PlaceTableViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "DetailSegue", sender: self)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "DetailSegue" {
+                if let detailVC = segue.destination as? PlaceDetailViewController {
+                    if let indexPath = tableView.indexPathForSelectedRow {
+                        let place = places[indexPath.row]
+                        detailVC.placeIdOptional = place.id
+                    }
+                }
+            }
+        }
+    }
     
 }
 

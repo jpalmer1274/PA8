@@ -73,18 +73,24 @@ struct GooglePlacesDetailAPI {
                   let id = placeDetails["place_id"] as? String, let name = placeDetails["name"] as? String, let vicinity = placeDetails["vicinity"] as? String,
                   let rating = placeDetails["rating"] as? Double, let photos = placeDetails["photos"] as? [[String: Any]],
                   let openingHours = placeDetails["opening_hours"] as? [String: Any], let openNow = openingHours["open_now"] as? Bool,
-                  let phoneNumber = placeDetails["formatted_phone_number"] as? String, let address = placeDetails["formatted_address"] as? String
+                  let address = placeDetails["formatted_address"] as? String, let reviews = placeDetails["reviews"] as? [[String: Any]]
             else {
                 print("Not all data present")
                 return nil
             }
             let photo = photos[photos.startIndex]
-            guard let photoReference = photo["photo_reference"] as? String else {
+            let review = reviews[reviews.startIndex]
+            guard let photoReference = photo["photo_reference"] as? String, let reviewText = review["text"] as? String
+            else {
                 print("Not all data present")
                 return nil
             }
             
-            return Place(id: id, name: name, vicinity: vicinity, rating: rating, photoReference: photoReference, openNow: openNow, phoneNumber: phoneNumber, address: address)
+            guard let phoneNumber = placeDetails["formatted_phone_number"] as? String else {
+                return Place(id: id, name: name, vicinity: vicinity, rating: rating, photoReference: photoReference, openNow: openNow, phoneNumber: "", address: address, review: reviewText)
+            }
+            
+            return Place(id: id, name: name, vicinity: vicinity, rating: rating, photoReference: photoReference, openNow: openNow, phoneNumber: phoneNumber, address: address, review: reviewText)
             
         } catch {
             print("Error converting Data to JSON \(error)")

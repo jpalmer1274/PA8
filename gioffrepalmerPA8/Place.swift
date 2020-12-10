@@ -16,8 +16,9 @@ class Place {
     var openNow: Bool
     var phoneNumber: String
     var address: String
+    var review: String
     
-    init(id: String, name: String, vicinity: String, rating: Double, photoReference: String, openNow: Bool, phoneNumber: String, address: String) {
+    init(id: String, name: String, vicinity: String, rating: Double, photoReference: String, openNow: Bool, phoneNumber: String, address: String, review: String) {
         self.id = id
         self.name = name
         self.vicinity = vicinity
@@ -26,5 +27,18 @@ class Place {
         self.openNow = openNow
         self.phoneNumber = phoneNumber
         self.address = address
+        self.review = review
+    }
+    
+    init(id: String, name: String, vicinity: String, rating: Double, photoReference: String, openNow: Bool) {
+        self.id = id
+        self.name = name
+        self.vicinity = vicinity
+        self.rating = rating
+        self.photoReference = photoReference
+        self.openNow = openNow
+        self.phoneNumber = ""
+        self.address = ""
+        self.review = ""
     }
 }

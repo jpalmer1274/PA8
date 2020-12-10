@@ -111,7 +111,7 @@ struct GooglePlacesSearchAPI {
             return nil
         }
         
-        return Place(id: id, name: name, vicinity: vicinity, rating: rating, photoReference: photoReference, openNow: openNow, phoneNumber: "", address: "")
+        return Place(id: id, name: name, vicinity: vicinity, rating: rating, photoReference: photoReference, openNow: openNow)
     }
     
     static func fetchPlace(fromURLString urlString: String, completion: @escaping (UIImage?) -> Void) {

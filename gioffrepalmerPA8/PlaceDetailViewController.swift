@@ -9,6 +9,8 @@ import UIKit
 
 class PlaceDetailViewController: UIViewController {
     
+    var placeIdOptional: String?
+    
     @IBOutlet var placeName: UILabel!
     @IBOutlet var placePhoneNumber: UILabel!
     @IBOutlet var placeOpen: UILabel!
@@ -20,6 +22,25 @@ class PlaceDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if let placeId = placeIdOptional {
+            GooglePlacesDetailAPI.fetchDetailResults(placeID: placeId, completion: { (placeOptional) in
+                if let place = placeOptional {
+                    print("in detail VC, got details back")
+                    self.placeName.text = place.name
+                    self.placePhoneNumber.text = place.phoneNumber
+                    if place.openNow {
+                        self.placeOpen.text = "open"
+                    } else {
+                        self.placeOpen.text = "closed"
+                    }
+                    self.placeAddress.text = place.address
+                    // self.placeReview.text = place.review
+                    // get picture using Place Photos API
+                } else {
+                    print("in detail VC, didn't get details back")
+                }
+            })
+        }
     }
     
 
