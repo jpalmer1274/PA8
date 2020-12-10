@@ -101,7 +101,8 @@ struct GooglePlacesDetailAPI {
     }
     
     
-    static func fetchPlace(fromURLString urlString: String, completion: @escaping (UIImage?) -> Void) {
+    static func fetchPlaceImage(fromPhotoReference photoReference: String, completion: @escaping (UIImage?) -> Void) {
+        let urlString = "https://maps.googleapis.com/maps/api/place/photo?key=\(APIkey)&photoreference=\(photoReference)&maxwidth=718"
         let url = URL(string: urlString)!
         
         let task = URLSession.shared.dataTask(with: url) { (dataOptional, urlResponseOptional, errorOptional) in

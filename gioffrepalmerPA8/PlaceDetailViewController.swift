@@ -29,13 +29,19 @@ class PlaceDetailViewController: UIViewController {
                     self.placeName.text = place.name
                     self.placePhoneNumber.text = place.phoneNumber
                     if place.openNow {
-                        self.placeOpen.text = "open"
+                        self.placeOpen.text = "(open)"
                     } else {
-                        self.placeOpen.text = "closed"
+                        self.placeOpen.text = "(closed)"
                     }
                     self.placeAddress.text = place.address
-                    // self.placeReview.text = place.review
+                    self.placeReview.text = place.review
+                    
                     // get picture using Place Photos API
+                    GooglePlacesDetailAPI.fetchPlaceImage(fromPhotoReference: place.photoReference, completion: { (imageOptional) in
+                        if let image = imageOptional {
+                            self.placePicture.image = image
+                        }
+                    })
                 } else {
                     print("in detail VC, didn't get details back")
                 }
