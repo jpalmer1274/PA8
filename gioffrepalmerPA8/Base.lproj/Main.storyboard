@@ -67,7 +67,13 @@
                             <constraint firstItem="xcO-di-jAi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8mS-o9-81L"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="NearMe" id="GB7-MZ-W81"/>
+                    <navigationItem key="navigationItem" title="NearMe" id="GB7-MZ-W81">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="ih5-RW-8IG">
+                            <connections>
+                                <action selector="refreshButtonPressed:" destination="BYZ-38-t0r" id="tz3-tj-iP7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Kvb-dY-ub2" id="riH-bH-Ro2"/>
                         <segue destination="AsO-KF-TuZ" kind="show" identifier="DetailSegue" id="oHi-Dt-jXO"/>
@@ -185,6 +191,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

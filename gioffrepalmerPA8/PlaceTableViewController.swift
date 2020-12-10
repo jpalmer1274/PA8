@@ -6,20 +6,33 @@
 //
 
 import UIKit
+import CoreLocation
 
-class PlaceTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
+class PlaceTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, CLLocationManagerDelegate {
     
     var places = [Place]()
     @IBOutlet var tableView: UITableView!
+    
+    var searchController = UISearchController(searchResultsController: nil)
+    
+    let locationManager = CLLocationManager()
+    var latitude: String = String(47.667191) // default to gonzaga
+    var longitude: String = String(-117.402382) // default to gonzaga
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        if CLLocationManager.locationServicesEnabled() {
+            setupLocationServices()
+            print("enabled")
+        } else {
+            print("disabled")
+        }
+        
         tableView.delegate = self
         tableView.dataSource = self
         
-        let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Nearby"
@@ -27,8 +40,15 @@ class PlaceTableViewController: UIViewController, UITableViewDataSource, UITable
         definesPresentationContext = true
     }
     
-    func searchNearby(keyword: String) {
-        GooglePlacesSearchAPI.fetchSearchResults(latitude: "47.667191", longitude: "-117.402382", keyword: keyword, completion: { (placesOptional) in
+    func setupLocationServices() {
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.requestLocation()
+    }
+    
+    func searchNearby(keyword: String, latitude: String, longitude: String) {
+        GooglePlacesSearchAPI.fetchSearchResults(latitude: latitude, longitude: longitude, keyword: keyword, completion: { (placesOptional) in
             if let places = placesOptional {
                 print("in Table VC, got array back")
                 self.places = places
@@ -38,6 +58,10 @@ class PlaceTableViewController: UIViewController, UITableViewDataSource, UITable
             }
             
         })
+    }
+    
+    @IBAction func refreshButtonPressed(_ sender: UIBarButtonItem) {
+        locationManager.requestLocation()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,12 +90,23 @@ class PlaceTableViewController: UIViewController, UITableViewDataSource, UITable
         let searchBar = searchController.searchBar
         if let keyword = searchBar.text {
             if keyword != "" {
-                searchNearby(keyword: keyword)
+                searchNearby(keyword: keyword, latitude: self.latitude, longitude: self.longitude)
             } else {
                 places.removeAll()
                 tableView.reloadData()
             }
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[locations.count - 1]
+        self.latitude = String(location.coordinate.latitude)
+        self.longitude = String(location.coordinate.longitude)
+        updateSearchResults(for: self.searchController)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error requesting location \(error)")
     }
     
     // MARK: - Navigation
